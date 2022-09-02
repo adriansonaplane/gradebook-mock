@@ -17,6 +17,7 @@ import { GradeComponent } from './components/grade/grade.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { StudentsComponent } from './components/students/students.component';
 import { GradesComponent } from './components/grades/grades.component';
+import { SearchStudentComponent } from './components/search-student/search-student.component';
 
 
 
@@ -32,16 +33,17 @@ import { GradesComponent } from './components/grades/grades.component';
     NavBarComponent,
     StudentsComponent,
     GradesComponent,
+    SearchStudentComponent,
   ],
-  imports: [
+    imports: [
 
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-  ],
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
