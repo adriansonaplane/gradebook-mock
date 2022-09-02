@@ -1,0 +1,23 @@
+<h4>
+  Sign-Up Form
+</h4>
+
+<div id="signup-in-form">
+  <form [formGroup]="signupForm"  (ngSubmit)="onCreate()">
+
+    <div>
+      <label for="username-input">Username</label>
+      <input #usernameInput id="username-input" type="text" formControlName="username" required/>
+    </div>
+
+    <div>
+      <label for="password-input">Password</label>
+      <input #passwordInput id="password-input" type="password" formControlName="password" required/>
+    </div>
+
+    <div>
+      <button mat-button>Create</button>
+    </div>
+
+  </form>
+</div>
