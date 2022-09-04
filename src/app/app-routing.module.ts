@@ -6,6 +6,7 @@ import {SignupComponent} from "./components/signup/signup.component";
 import {StudentsComponent} from "./components/students/students.component";
 import {GradesComponent} from "./components/grades/grades.component";
 import {SearchStudentComponent} from "./components/search-student/search-student.component";
+import { StudentListComponent } from './components/student-list/student-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'students', component: StudentsComponent},
   {path: 'grades', component: GradesComponent},
-  {path: 'search', component: SearchStudentComponent}
+  {path: 'search', component: SearchStudentComponent},
+  {path: 'studentlist', component: StudentListComponent}
 ];
 
 

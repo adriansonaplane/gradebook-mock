@@ -18,6 +18,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { StudentsComponent } from './components/students/students.component';
 import { GradesComponent } from './components/grades/grades.component';
 import { SearchStudentComponent } from './components/search-student/search-student.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
 
 
 
@@ -34,15 +35,15 @@ import { SearchStudentComponent } from './components/search-student/search-stude
     StudentsComponent,
     GradesComponent,
     SearchStudentComponent,
+    StudentListComponent,
   ],
     imports: [
-
         AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         MatButtonModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
