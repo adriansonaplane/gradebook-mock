@@ -12,7 +12,7 @@ export class StudentService {
   private studentsUrl = 'http://localhost:8080/students';
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
 
   }
 
@@ -47,7 +47,7 @@ export class StudentService {
 
   }
 
-  getStudentByName(first: string, last: string): Observable<Student[]>{
+  getStudentByName(first: string | null | undefined, last: string | null | undefined): Observable<Student[]>{
 
     const url = `${this.studentsUrl}?firstname=${first}&lastname=${last}`;
     return this.http.get<Student[]>(url);

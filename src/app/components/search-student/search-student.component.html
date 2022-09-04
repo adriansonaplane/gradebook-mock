@@ -1,0 +1,36 @@
+<div id="search-student-form">
+
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="firstname-input">First Name: </label>
+      <input #firstnameInput id="firstname-input" type="text" formControlName="first" required/>
+    </div>
+
+    <div>
+      <label for="lastname-input">First Name: </label>
+      <input #lastnameInput id="lastname-input" type="text" formControlName="last" required/>
+    </div>
+
+    <div>
+      <button mat-raised-button class="button" type="submit">Search</button>
+    </div>
+
+  </form>
+
+  <ul class="students">
+    <li *ngFor="let student of students">
+      <span class="badge">
+        {{student.sid}}
+      </span>
+      {{student.fname}}
+      {{student.lname}}
+      {{student.gname}}
+
+      <button mat-raised-button type="button" class="view" title="view hero">View</button>
+      <button mat-raised-button type="button" class="delete" title="delete hero">Delete</button>
+
+    </li>
+  </ul>
+
+</div>
