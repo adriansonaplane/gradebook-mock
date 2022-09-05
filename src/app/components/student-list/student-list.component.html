@@ -1,0 +1,18 @@
+<table class="table" id="cryptoTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Student Name</th>
+        <th>Guardian Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of studentList; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{student.fname + " " + student.lname}}</td>
+            <td>{{student.gname}}</td>
+            <td><button type="button" class="btn btn-danger" (click)="deletStudent(student.sid)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>

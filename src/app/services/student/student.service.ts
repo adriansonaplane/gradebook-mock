@@ -40,10 +40,10 @@ export class StudentService {
 
   }
 
-  deleteStudent(id: number): Observable<Student>{
+  deleteStudent(id: number): Observable<boolean>{
 
     const url = `${this.studentsUrl}/${id}`;
-    return this.http.delete<Student>(url, this.httpOptions);
+    return this.http.delete<boolean>(url, this.httpOptions);
 
   }
 
