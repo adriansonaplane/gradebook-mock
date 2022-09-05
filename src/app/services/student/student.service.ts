@@ -47,7 +47,7 @@ export class StudentService {
 
   }
 
-  getStudentByName(first: string | null | undefined, last: string | null | undefined): Observable<Student[]>{
+  getStudentByName(first: string, last: string): Observable<Student[]>{
 
     const url = `${this.studentsUrl}?firstname=${first}&lastname=${last}`;
     return this.http.get<Student[]>(url);
