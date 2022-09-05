@@ -28,8 +28,9 @@ export class SearchStudentComponent implements OnInit {
 
   onSubmit(): void{
 
-    const user = this.searchForm.value;
-    this.studentService.getStudentByName(user.first, user.last).subscribe(students => this.students = students);
+    const student = this.searchForm.value;
+    this.studentService.getStudentByName(<string>student.first, <string>student.last)
+      .subscribe(students => this.students = students);
     this.searchForm.reset();
 
   }
