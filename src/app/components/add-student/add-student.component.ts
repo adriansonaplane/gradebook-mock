@@ -22,6 +22,10 @@ export class AddStudentComponent implements OnInit {
 
   toggleForm(): void {
     this.showForm = !this.showForm;
+    this.status = "";
+    this.fname = "";
+    this.lname = "";
+    this.gname = "";
   }
 
   addStudent(): void {
