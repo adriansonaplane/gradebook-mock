@@ -1,1 +1,23 @@
-<p>grades works!</p>
+
+<h3>insert student's name Grades</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Grade ID</th>
+            <th>Student ID</th>
+            <th>Time Reported</th>
+            <th>Notes</th>
+            <th>Behavior</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let g of gradeList">
+            <th>{{g.gid}}</th>
+            <th>{{g.sid}}</th>
+            <th>{{g.treported}}</th>
+            <th>{{g.note}}</th>
+            <th>{{g.behavior}}</th>
+        </tr>
+    </tbody>
+</table>

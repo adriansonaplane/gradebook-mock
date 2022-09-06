@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'students', component: StudentsComponent},
   {path: 'grades', component: GradesComponent},
   {path: 'search', component: SearchStudentComponent},
-  {path: 'studentlist', component: StudentListComponent}
+  {path: 'studentlist', component: StudentListComponent},
+  {path: 'grades/:sid', component: GradesComponent}
 ];
 
 
