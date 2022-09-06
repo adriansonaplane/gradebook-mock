@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {Student} from "../../entities/student";
 import {StudentService} from "../../services/student/student.service";
+import {TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-search-student',
@@ -21,6 +22,7 @@ export class SearchStudentComponent implements OnInit {
   constructor(
     private studentService: StudentService,
     private formBuilder: FormBuilder,
+    private toTitleCase: TitleCasePipe,
   ){ }
 
   ngOnInit(): void {
@@ -29,7 +31,9 @@ export class SearchStudentComponent implements OnInit {
   onSubmit(): void{
 
     const student = this.searchForm.value;
-    this.studentService.getStudentByName(<string>student.first, <string>student.last)
+    this.studentService.getStudentByName(
+      this.toTitleCase.transform(<string>student.first),
+      this.toTitleCase.transform(<string>student.last))
       .subscribe(students => this.students = students);
     this.searchForm.reset();
 
