@@ -1,6 +1,6 @@
 <div id="search-student-form">
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <form ngNativeValidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
 
     <div>
       <label for="firstname-input">First Name: </label>
