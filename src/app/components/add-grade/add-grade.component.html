@@ -1,0 +1,24 @@
+<button (click)="toggleForm()">Add Grade</button>
+<div *ngIf="showForm">
+    <p>Create Grade</p>
+    <br>
+
+    <label for = "noteInput">Note: </label>
+    <input id = "noteInput" type="text" [(ngModel)]="note" />
+
+    <label for = "behaviorSelect">Behavior: </label>
+    <select id = "behaviorSelect" [(ngModel)]="behavior">
+        <option value="" selected disabled hidden>Select a Behavior</option>
+        <option value = "TERRIBLE">Terrible</option>
+        <option value = "BAD">Bad</option>
+        <option value = "OK">Ok</option>
+        <option value = "GOOD">Good</option>
+        <option value = "GREAT">Great</option>
+    </select>
+
+    <br>
+    <button (click)="addGrade()">Submit</button>
+    <button (click)="toggleForm()">Cancel</button>
+</div>
+<p>{{status}}</p>
+
