@@ -21,6 +21,7 @@ import { SearchStudentComponent } from './components/search-student/search-stude
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { AddGradeComponent } from './components/add-grade/add-grade.component';
+import {TitleCasePipe} from "@angular/common";
 
 
 
@@ -50,7 +51,7 @@ import { AddGradeComponent } from './components/add-grade/add-grade.component';
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [],
+  providers: [TitleCasePipe],
   bootstrap: [AppComponent]
 })
 

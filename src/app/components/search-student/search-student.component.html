@@ -1,6 +1,6 @@
 <div id="search-student-form">
 
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <form ngNativeValidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
 
     <div>
       <label for="firstname-input">First Name: </label>
@@ -8,7 +8,7 @@
     </div>
 
     <div>
-      <label for="lastname-input">First Name: </label>
+      <label for="lastname-input">Last Name: </label>
       <input #lastnameInput id="lastname-input" type="text" formControlName="last" required/>
     </div>
 
@@ -17,20 +17,24 @@
     </div>
 
   </form>
-
-  <ul class="students">
-    <li *ngFor="let student of students">
-      <span class="badge">
-        {{student.sid}}
-      </span>
-      {{student.fname}}
-      {{student.lname}}
-      {{student.gname}}
-
-      <button mat-raised-button type="button" class="view" title="view student">View</button>
-      <button mat-raised-button type="button" class="delete" title="delete student">Delete</button>
-
-    </li>
-  </ul>
+  <table *ngIf="students.length !==0" class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Student Name</th>
+        <th>Guardian Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{student.fname + " " + student.lname}}</td>
+            <td>{{student.gname}}</td>
+            <td><button type="button" class="btn btn-primary" [routerLink]="['/grades', student.sid]">View Grades</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deletStudent(student.sid)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
 
 </div>
