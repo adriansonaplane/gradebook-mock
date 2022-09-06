@@ -12,6 +12,7 @@
             <td>{{i+1}}</td>
             <td>{{student.fname + " " + student.lname}}</td>
             <td>{{student.gname}}</td>
+            <td><button type="button" class="btn btn-primary" [routerLink]="['/grades', student.sid]">View Grades</button></td>
             <td><button type="button" class="btn btn-danger" (click)="deletStudent(student.sid)">Delete</button></td>
         </tr>
     </tbody>
