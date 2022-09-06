@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from "@angular/common/http";
 
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
@@ -19,6 +19,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { GradesComponent } from './components/grades/grades.component';
 import { SearchStudentComponent } from './components/search-student/search-student.component';
 import { StudentListComponent } from './components/student-list/student-list.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
 
 
 
@@ -36,6 +37,7 @@ import { StudentListComponent } from './components/student-list/student-list.com
     GradesComponent,
     SearchStudentComponent,
     StudentListComponent,
+    AddStudentComponent,
   ],
     imports: [
         AppRoutingModule,
@@ -43,7 +45,8 @@ import { StudentListComponent } from './components/student-list/student-list.com
         BrowserAnimationsModule,
         HttpClientModule,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

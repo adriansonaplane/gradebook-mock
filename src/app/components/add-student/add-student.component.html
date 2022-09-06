@@ -1,0 +1,17 @@
+<button (click)="toggleForm()">Add Student</button>
+<div *ngIf="showForm">
+    <p>Create Student</p>
+    <br>
+
+    <label for = "fnameInput">First Name: </label>
+    <input id = "fnameInput" type = "text" required minlength="3" [(ngModel)]="fname"/>
+    <label for = "lnameInput">Last Name: </label>
+    <input id = "lnameInput" type = "text" required minlength="3" [(ngModel)]="lname"/>
+    <label for = "gnameInput">Guardian Name: </label>
+    <input id = "gnameInput" type = "text" required minlength="3" [(ngModel)]="gname"/>
+
+    <br>
+    <button (click)="addStudent()">Submit</button>
+    <button (click)="toggleForm()">Cancel</button>
+</div>
+<p>{{status}}</p>
