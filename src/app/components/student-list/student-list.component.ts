@@ -13,7 +13,7 @@ export class StudentListComponent implements OnInit {
   constructor(private studentService:StudentService) { }
 
   ngOnInit(): void {
-    this.studentService.getStudents().subscribe(students => this.studentList = students);
+    this.studentService.getStudents().subscribe(students => this.studentList = students.filter(s => s.sid !== -1));
   }
 
   deletStudent(sid:number){
