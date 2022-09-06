@@ -21,4 +21,10 @@ export class GradeService {
     const url = `${this.gradesUrl}/${sid}`;
     return this.http.get<Grade[]>(url);
   }
+
+  addGrade(grade: Grade): Observable<Grade>{
+
+    return this.http.post<Grade>(this.gradesUrl, grade, this.httpOptions);
+
+  }
 }
