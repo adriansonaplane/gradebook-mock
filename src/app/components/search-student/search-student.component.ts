@@ -39,4 +39,18 @@ export class SearchStudentComponent implements OnInit {
 
   }
 
+  deletStudent(sid:number){
+    this.studentService.deleteStudent(sid).subscribe({
+      next: status => {
+          console.log(status);
+          alert("Delete successful")
+          let ind = this.students.findIndex(student => student.sid === sid);
+          this.students.splice(ind, 1);
+      },
+      error: error => {
+          console.error('There was an error!', error);
+      }
+  });
+  }
+
 }
