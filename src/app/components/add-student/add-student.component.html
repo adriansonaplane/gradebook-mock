@@ -1,17 +1,14 @@
-<button (click)="toggleForm()">Add Student</button>
-<div *ngIf="showForm">
-    <p>Create Student</p>
-    <br>
+<button class="open-button" (click)="toggleForm()">Add Student</button>
 
-    <label for = "fnameInput">First Name: </label>
-    <input id = "fnameInput" type = "text" required minlength="3" [(ngModel)]="fname"/>
-    <label for = "lnameInput">Last Name: </label>
-    <input id = "lnameInput" type = "text" required minlength="3" [(ngModel)]="lname"/>
-    <label for = "gnameInput">Guardian Name: </label>
-    <input id = "gnameInput" type = "text" required minlength="3" [(ngModel)]="gname"/>
+<div *ngIf="showForm" class="form-popup" id="myForm">
+  <div class="form-container">
+    <h2>Create Student</h2>
 
-    <br>
-    <button (click)="addStudent()">Submit</button>
-    <button (click)="toggleForm()">Cancel</button>
+    <input id = "fnameInput" type = "text" required minlength="3" placeholder="Enter First Name" [(ngModel)]="fname"/>
+    <input id = "lnameInput" type = "text" required minlength="3" placeholder="Enter Last Name" [(ngModel)]="lname"/>
+    <input id = "gnameInput" type = "text" required minlength="3" placeholder="Enter Guardian Name" [(ngModel)]="gname"/>
+
+    <button class="btn" (click)="addStudent()">Submit</button>
+    <button type="button" class="btn cancel" (click)="toggleForm()">Close</button>
+  </div>
 </div>
-<p>{{status}}</p>

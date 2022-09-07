@@ -42,7 +42,13 @@ export class AddStudentComponent implements OnInit {
       return;
     }
 
-    this.studentService.addStudent(student).subscribe();
+    this.studentService.addStudent(student).subscribe({
+        next: student => location.reload(),
+        error: error => {
+          console.log(error);
+          alert("error occured during creating a student");
+        }
+    });
 
     this.toggleForm();
     this.status = `Student Created!`;

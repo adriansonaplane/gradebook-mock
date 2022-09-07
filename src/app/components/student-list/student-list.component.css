@@ -1,0 +1,23 @@
+.students-container{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#student-list{
+    width: 60%;
+    margin: auto;
+}
+
+
+td{
+    vertical-align: middle;
+}
+
+table{
+   table-layout: fixed;
+}
+

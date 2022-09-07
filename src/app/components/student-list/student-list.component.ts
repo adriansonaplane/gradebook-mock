@@ -9,12 +9,17 @@ import { StudentService } from 'src/app/services/student/student.service';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  studentList:Student[] = [];
   constructor(private studentService:StudentService) { }
+  studentList:Student[] = [];
 
   ngOnInit(): void {
-    this.studentService.getStudents().subscribe(students => this.studentList = students.filter(s => s.sid !== -1));
-  }
+    this.studentService.getStudents().subscribe({
+    next: students => this.studentList.push(...students.filter(s => s.sid !== -1)),
+    error: error => {
+      console.error('There was an error!', error);
+      alert("error occured during mounting");
+    }
+  }); }
 
   deletStudent(sid:number){
     this.studentService.deleteStudent(sid).subscribe({

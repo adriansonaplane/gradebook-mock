@@ -1,40 +1,32 @@
 <div id="search-student-form">
 
   <form ngNativeValidate [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-
-    <div>
-      <label for="firstname-input">First Name: </label>
-      <input #firstnameInput id="firstname-input" type="text" formControlName="first" required/>
+    <div class="input-group mb-2" id="student-search-bar">
+      <input #firstnameInput id="firstname-input" formControlName="first" type="search" 
+        class="form-control rounded me-3" placeholder="First Name" aria-label="First Name" aria-describedby="search-addon" required/>
+      <input #lastnameInput id="lastname-input" formControlName="last" type="search" 
+        class="form-control rounded me-2" placeholder="Last Name" aria-label="Last Name" aria-describedby="search-addon" required/>
+      <button type="submit" class="btn btn-outline-success rounded">search</button>
     </div>
-
-    <div>
-      <label for="lastname-input">Last Name: </label>
-      <input #lastnameInput id="lastname-input" type="text" formControlName="last" required/>
-    </div>
-
-    <div>
-      <button mat-raised-button class="button" type="submit">Search</button>
-    </div>
-
   </form>
-  <table *ngIf="students.length !==0" class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Student Name</th>
-        <th>Guardian Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let student of students; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{student.fname + " " + student.lname}}</td>
-            <td>{{student.gname}}</td>
-            <td><button type="button" class="btn btn-primary" [routerLink]="['/grades', student.sid]">View Grades</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deletStudent(student.sid)">Delete</button></td>
-        </tr>
-    </tbody>
-</table>
 
+  
+  <div *ngIf="students.length !==0">
+    <table class="table mb-5" id="search-list">
+      <thead class="text-center">
+        <tr><th colspan="4">Search Results</th></tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let student of students; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{student.fname + " " + student.lname}}</td>
+              <td>{{student.gname}}</td>
+              <td>
+                <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/grades', student.sid]">View Grades</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deletStudent(student.sid)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
