@@ -43,7 +43,7 @@ export class AddStudentComponent implements OnInit {
     }
 
     this.studentService.addStudent(student).subscribe({
-        next: student => this.studentService.studentList.push(student),
+        next: student => location.reload(),
         error: error => {
           console.log(error);
           alert("error occured during creating a student");

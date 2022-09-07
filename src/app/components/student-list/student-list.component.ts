@@ -10,9 +10,16 @@ import { StudentService } from 'src/app/services/student/student.service';
 })
 export class StudentListComponent implements OnInit {
   constructor(private studentService:StudentService) { }
-  studentList:Student[] = this.studentService.studentList;
+  studentList:Student[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.studentService.getStudents().subscribe({
+    next: students => this.studentList.push(...students.filter(s => s.sid !== -1)),
+    error: error => {
+      console.error('There was an error!', error);
+      alert("error occured during mounting");
+    }
+  }); }
 
   deletStudent(sid:number){
     this.studentService.deleteStudent(sid).subscribe({
