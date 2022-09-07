@@ -1,21 +1,25 @@
 <app-add-student></app-add-student>
-<app-search-student></app-search-student>
-<table class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Student Name</th>
-        <th>Guardian Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let student of studentList; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{student.fname + " " + student.lname}}</td>
-            <td>{{student.gname}}</td>
-            <td><button type="button" class="btn btn-primary" [routerLink]="['/grades', student.sid]">View Grades</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deletStudent(student.sid)">Delete</button></td>
+<div class="students-container">
+  <app-search-student></app-search-student>
+  <table class="table mt-4" id="student-list">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Student Name</th>
+          <th>Guardian Name</th>
+          <th>Actions</th>
         </tr>
-    </tbody>
-</table>
+      </thead>
+      <tbody>
+          <tr *ngFor="let student of studentList; let i = index">
+              <td style="width: 10px;">{{i+1}}</td>
+              <td>{{student.fname + " " + student.lname}}</td>
+              <td>{{student.gname}}</td>
+              <td>
+                <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/grades', student.sid]">View Grades</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deletStudent(student.sid)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

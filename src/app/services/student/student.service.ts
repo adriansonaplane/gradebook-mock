@@ -10,16 +10,23 @@ import {Student} from "../../entities/student";
 export class StudentService {
 
   private studentsUrl = 'http://localhost:8080/students';
+  studentList:Student[] = [];
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 
-  }
+  }  
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-  ) { }
+    private http: HttpClient, private messageService: MessageService) {
+    this.getStudents().subscribe({
+      next: students => this.studentList.push(...students.filter(s => s.sid !== -1)),
+      error: error => {
+        console.error('There was an error!', error);
+        alert("error occured during mounting");
+      }
+    }); 
+  }
 
   getStudents(): Observable<Student[]>{
 

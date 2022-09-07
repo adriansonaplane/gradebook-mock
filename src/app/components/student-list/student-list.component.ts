@@ -9,12 +9,10 @@ import { StudentService } from 'src/app/services/student/student.service';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  studentList:Student[] = [];
   constructor(private studentService:StudentService) { }
+  studentList:Student[] = this.studentService.studentList;
 
-  ngOnInit(): void {
-    this.studentService.getStudents().subscribe(students => this.studentList = students.filter(s => s.sid !== -1));
-  }
+  ngOnInit(): void {}
 
   deletStudent(sid:number){
     this.studentService.deleteStudent(sid).subscribe({
