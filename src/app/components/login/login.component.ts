@@ -25,8 +25,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    console.log("inside login component");
-    console.log(this.login);
     this.authService.logIn(this.login);
     this.router.navigate(['/search']);
   }

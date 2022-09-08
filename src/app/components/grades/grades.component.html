@@ -14,7 +14,7 @@
         <tr *ngFor="let g of gradeList">
             <th>{{g.gid}}</th>
             <th>{{g.sid}}</th>
-            <th>{{g.treported}}</th>
+            <th>{{g.treported | date:'medium'}}</th>
             <th>{{g.note}}</th>
             <th>{{g.behavior}}</th>
         </tr>
