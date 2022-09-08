@@ -1,21 +1,17 @@
-
-<div id="navBody">
-
+<div id="nav-bar-body">
   <ng-container *ngIf="!isAuthenticated()">
     <nav>
-      <button mat-raised-button routerLink="/login">Login</button>
-      <button mat-raised-button routerLink="/signup">Signup</button>
+      <button class="btn btn-primary btn-block mx-1" routerLink="/login">Login</button>
+      <button class="btn btn-success btn-block mx-1" routerLink="/signup">Signup</button>
     </nav>
   </ng-container>
 
   <ng-container *ngIf="isAuthenticated()">
     <nav>
-      <button mat-raised-button (click)="logout()" routerLink="/login">Logout</button>
-      <button mat-raised-button routerLink="/grades">Grades</button>
-      <button mat-raised-button routerLink="/students">Students</button>
-      <button mat-raised-button routerLink="/search">Searc</button>
-      <button mat-raised-button routerLink="/studentlist">Student List</button>
+      <button class="btn btn-sm btn-outline-dark btn-block mx-1 " routerLink="/grades">Grades</button>
+      <button class="btn btn-sm btn-outline-dark btn-block mx-1 " routerLink="/search">Search</button>
+      <button class="btn btn-sm btn-outline-dark btn-block mx-1 " routerLink="/studentlist">Students</button>
+      <button class="btn btn-sm btn-danger btn-block mx-1 " (click)="logout()" routerLink="/login">Logout</button>
     </nav>
   </ng-container>
-
 </div>

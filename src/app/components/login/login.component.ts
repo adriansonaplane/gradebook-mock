@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
-import {User} from "../../entities/user";
 import {AuthService} from "../../services/auth/auth.service";
+import {User} from "../../entities/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,15 +18,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   onLogin(): void {
-    console.log("inside login component");
-    console.log(this.login);
     this.authService.logIn(this.login);
+    this.router.navigate(['/search']);
   }
 
 }
