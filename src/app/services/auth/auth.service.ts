@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../../entities/user";
+import {lastValueFrom} from "rxjs";
+import {Token} from "../../entities/token";
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +21,11 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
-  logIn(user: User): void{
-    console.log("inside service");
-    console.log(user);
-    this.http.post(this.authUrl, user, this.httpOptions)
-      .subscribe(data => console.log(JSON.stringify(data)), error => console.log(error.error.text));
+  async logIn(user: User): Promise<void>{
+    const object = await lastValueFrom(
+      this.http.post<Token>(
+        this.authUrl, user, this.httpOptions));
+    localStorage.setItem("userInfo", object.token);
     this.isAuthenticated = true;
   }
 }
