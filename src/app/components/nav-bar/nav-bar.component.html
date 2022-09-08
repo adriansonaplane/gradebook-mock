@@ -1,17 +1,18 @@
-<div id="nav-bar-body">
-  <ng-container *ngIf="!isAuthenticated()">
+
+<div id="navBody">
+
+  <ng-container *ngIf="curUser.role === 'unknown'">
     <nav>
       <button class="btn btn-primary btn-block mx-1" routerLink="/login">Login</button>
       <button class="btn btn-success btn-block mx-1" routerLink="/signup">Signup</button>
     </nav>
   </ng-container>
 
-  <ng-container *ngIf="isAuthenticated()">
+  <ng-container *ngIf="curUser.role === 'guardian' || curUser.role === 'teacher'">
     <nav>
-      <button class="btn btn-sm btn-outline-dark btn-block mx-1 " routerLink="/grades">Grades</button>
-      <button class="btn btn-sm btn-outline-dark btn-block mx-1 " routerLink="/search">Search</button>
-      <button class="btn btn-sm btn-outline-dark btn-block mx-1 " routerLink="/studentlist">Students</button>
+      <button class="btn btn-sm btn-outline-dark btn-block mx-1" routerLink="/studentlist">Student List</button>
       <button class="btn btn-sm btn-danger btn-block mx-1 " (click)="logout()" routerLink="/login">Logout</button>
     </nav>
   </ng-container>
+
 </div>

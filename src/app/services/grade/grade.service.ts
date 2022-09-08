@@ -17,14 +17,20 @@ export class GradeService {
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
+  createOptionWithHeader(){
+    let header = new HttpHeaders({'Content-Type': 'application/json', 'auth': localStorage.getItem("userInfo")!});
+    const httpOptions = {headers: header}
+    return httpOptions;
+  }
+
   getGradesByStudentId(sid: number): Observable<Grade[]>{
     const url = `${this.gradesUrl}/${sid}`;
-    return this.http.get<Grade[]>(url);
+    return this.http.get<Grade[]>(url, this.createOptionWithHeader());
   }
 
   addGrade(grade: Grade): Observable<Grade>{
 
-    return this.http.post<Grade>(this.gradesUrl, grade, this.httpOptions);
+    return this.http.post<Grade>(this.gradesUrl, grade, this.createOptionWithHeader());
 
   }
 }
