@@ -1,23 +1,17 @@
-<h4>
-  Sign-Up Form
-</h4>
-
-<div id="signup-in-form">
-  <form [formGroup]="signupForm"  (ngSubmit)="onCreate()">
-
-    <div>
-      <label for="username-input">Username</label>
-      <input #usernameInput id="username-input" type="text" formControlName="username" required/>
+<div class="signup-form-container" style="width: 21%;">
+  <h1 class="mt-3"style="text-align: center;">Sign Up</h1>
+  <form style="width: 85%; margin: auto;" [formGroup]="signupForm"  (ngSubmit)="onCreate()">
+      
+    <div class="mb-4 mt-4">
+        <input type="text" id="username-input" class="form-control" formControlName="username" placeholder="Username" required/>
     </div>
-
-    <div>
-      <label for="password-input">Password</label>
-      <input #passwordInput id="password-input" type="password" formControlName="password" required/>
+    
+    <div class="mb-4">
+        <input type="password" id="password-input" class="form-control" formControlName="password" placeholder="Password" required/>
     </div>
-
-    <div>
-      <button mat-raised-button>Create</button>
+    
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-success btn-block mb-4 " style="width: 32%;">Sign Up</button>
     </div>
-
   </form>
 </div>

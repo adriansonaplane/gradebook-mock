@@ -1,0 +1,13 @@
+.signup-form-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;
+    border: 1px solid #f1f1f1;
+    border-radius: 17px;
+    padding: 10px;
+    vertical-align: middle;
+    background-color: white;
+  }
