@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
+import {User} from "../../entities/user";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -8,20 +10,22 @@ import {FormBuilder} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = this.formBuilder.group({
-    username: '',
-    password: ''
-  });
+  login: User = {
+    username: "",
+    password: ""
+  }
   constructor(
     private formBuilder: FormBuilder,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
   }
 
   onLogin(): void {
-    alert("Login Successful");
-    this.loginForm.reset();
+    console.log("inside login component");
+    console.log(this.login);
+    this.authService.logIn(this.login);
   }
 
 }

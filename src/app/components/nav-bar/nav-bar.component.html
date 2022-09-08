@@ -1,7 +1,21 @@
+
 <div id="navBody">
-  <nav>
-    <button mat-raised-button routerLink="/login">Login</button>
-    <button mat-raised-button routerLink="/signup">Signup</button>
-    <button mat-raised-button routerLink="/studentlist">Student List</button>
-  </nav>
+
+  <ng-container *ngIf="!isAuthenticated()">
+    <nav>
+      <button mat-raised-button routerLink="/login">Login</button>
+      <button mat-raised-button routerLink="/signup">Signup</button>
+    </nav>
+  </ng-container>
+
+  <ng-container *ngIf="isAuthenticated()">
+    <nav>
+      <button mat-raised-button (click)="logout()" routerLink="/login">Logout</button>
+      <button mat-raised-button routerLink="/grades">Grades</button>
+      <button mat-raised-button routerLink="/students">Students</button>
+      <button mat-raised-button routerLink="/search">Searc</button>
+      <button mat-raised-button routerLink="/studentlist">Student List</button>
+    </nav>
+  </ng-container>
+
 </div>
