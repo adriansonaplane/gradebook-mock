@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/entities/student';
 import { StudentService } from 'src/app/services/student/student.service';
-
+import {AuthService} from "../../services/auth/auth.service";
+import {UserInfo} from "../../entities/userInfo";
 
 @Component({
   selector: 'app-student-list',
@@ -9,8 +10,9 @@ import { StudentService } from 'src/app/services/student/student.service';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  constructor(private studentService:StudentService) { }
+  constructor(private studentService:StudentService, private authService: AuthService) { }
   studentList:Student[] = [];
+  curUser: UserInfo = this.authService.curUser;
 
   ngOnInit(): void {
     this.studentService.getStudents().subscribe({

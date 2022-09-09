@@ -1,6 +1,6 @@
-<app-add-student></app-add-student>
+<app-add-student *ngIf="curUser.role === 'teacher'"></app-add-student>
 <div class="students-container">
-  <app-search-student></app-search-student>
+  <app-search-student *ngIf="curUser.role === 'teacher'"></app-search-student>
   <table class="table mt-4" id="student-list">
       <thead>
         <tr>
@@ -17,7 +17,7 @@
               <td>{{student.gname}}</td>
               <td>
                 <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/grades', student.sid]">View Grades</button>
-                <button type="button" class="btn btn-outline-danger" (click)="deletStudent(student.sid)">Delete</button>
+                <button *ngIf="curUser.role === 'teacher'" type="button" class="btn btn-outline-danger" (click)="deletStudent(student.sid)">Delete</button>
               </td>
           </tr>
       </tbody>
