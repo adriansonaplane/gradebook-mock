@@ -1,25 +1,25 @@
 <app-add-student *ngIf="curUser.role === 'teacher'"></app-add-student>
 <div class="students-container">
   <app-search-student *ngIf="curUser.role === 'teacher'"></app-search-student>
-  <table class="table mt-4" id="student-list">
+  <table class="table mt-4 table-hover table-striped" id="student-list">
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Student Name</th>
-          <th>Guardian Name</th>
-          <th>Actions</th>
+        <tr id="row">
+          <th id="number" style="width: 10%">#</th>
+          <th style="width: 27.5%">Student Name</th>
+          <th style="width: 27.5%">Guardian Name</th>
+          <th id="actions" style="width: 35%">Actions</th>
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let student of studentList; let i = index">
-              <td style="width: 10px;">{{i+1}}</td>
-              <td>{{student.fname + " " + student.lname}}</td>
-              <td>{{student.gname}}</td>
-              <td>
-                <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/grades', student.sid]">View Grades</button>
-                <button *ngIf="curUser.role === 'teacher'" type="button" class="btn btn-outline-danger" (click)="deletStudent(student.sid)">Delete</button>
-              </td>
-          </tr>
+        <tr class="table-light" *ngFor="let student of studentList; let i = index">
+          <td id="number-text" style="width: 10px;">{{i+1}}</td>
+          <td>{{student.fname + " " + student.lname}}</td>
+          <td>{{student.gname}}</td>
+          <td id="action-buttons">
+            <button type="button" class="btn bg-primary btn-text- bg-opacity-50 mx-1" [routerLink]="['/grades', student.sid]">View Grades</button>
+            <button *ngIf="curUser.role === 'teacher'" type="button" class="btn bg-danger bg-opacity-50" (click)="deletStudent(student.sid)">Delete</button>
+          </td>
+        </tr>
       </tbody>
-  </table>
-</div>
+    </table>
+  </div>

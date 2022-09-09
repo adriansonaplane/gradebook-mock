@@ -33,4 +33,10 @@ export class GradeService {
     return this.http.post<Grade>(this.gradesUrl, grade, this.createOptionWithHeader());
 
   }
+
+  deleteGrade(id: number): Observable<boolean>{
+    const url = `${this.gradesUrl}/${id}`;
+    return this.http.delete<boolean>(url, this.createOptionWithHeader());
+
+  }
 }
