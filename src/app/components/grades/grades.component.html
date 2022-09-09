@@ -1,22 +1,24 @@
 <app-add-grade></app-add-grade>
-<h3>insert student's name Grades</h3>
-<table class="table">
+<h3>Student's Grades</h3>
+<div class="grades-container">
+<table class="table mt-4 table-hover table-striped" id="grade-list">
     <thead>
-        <tr>
-            <th>Grade ID</th>
-            <th>Student ID</th>
-            <th>Time Reported</th>
-            <th>Notes</th>
-            <th>Behavior</th>
+        <tr id="row">
+            <th id="gid-header" style="width: 10%">Grade ID</th>
+            <th id="sid-header" style="width: 10%">Student ID</th>
+            <th style="width: 26.66%">Time Reported</th>
+            <th style="width: 26.66%">Notes</th>
+            <th style="width: 26.66%">Behavior</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let g of gradeList">
-            <th>{{g.gid}}</th>
-            <th>{{g.sid}}</th>
-            <th>{{g.treported | date:'medium'}}</th>
-            <th>{{g.note}}</th>
-            <th>{{g.behavior}}</th>
+        <tr class="table-light" *ngFor="let g of gradeList">
+            <td id="gid">{{g.gid}}</td>
+            <td id="sid">{{g.sid}}</td>
+            <td>{{g.treported | date:'medium'}}</td>
+            <td>{{g.note}}</td>
+            <td>{{g.behavior}}</td>
         </tr>
     </tbody>
 </table>
+</div>

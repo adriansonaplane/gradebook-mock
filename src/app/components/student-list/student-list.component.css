@@ -10,6 +10,8 @@
 #student-list{
     width: 60%;
     margin: auto;
+    border: 10px;
+    border-color: black;
 }
 
 
@@ -21,3 +23,28 @@ table{
    table-layout: fixed;
 }
 
+#actions {
+    text-align: center;
+}
+
+#action-buttons {
+    text-align: center;
+}
+
+#number {
+    text-align: center;
+}
+
+#number-text {
+    text-align: center;
+}
+
+#row {
+    background-color: rgb(185, 149, 100);
+}
+
+button {
+    color: white;
+    font-size: large;
+    
+}

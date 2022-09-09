@@ -1,24 +1,25 @@
-<button (click)="toggleForm()">Add Grade</button>
-<div *ngIf="showForm">
-    <p>Create Grade</p>
-    <br>
+<button class="open-button" (click)="toggleForm()">Add Grade</button>
+<div *ngIf="showForm" class="form-popup" id="myForm">
+    <div class="form-container">
+        <h2>Create Grade</h2>
+        <br>
 
-    <label for = "noteInput">Note: </label>
-    <input id = "noteInput" type="text" [(ngModel)]="note" />
+        <label for="noteInput"><b>Note: </b></label>
+        <input id="noteInput" type="text" placeholder="Add Notes Here" [(ngModel)]="note" />
 
-    <label for = "behaviorSelect">Behavior: </label>
-    <select id = "behaviorSelect" [(ngModel)]="behavior">
-        <option value="" selected disabled hidden>Select a Behavior</option>
-        <option value = "TERRIBLE">Terrible</option>
-        <option value = "BAD">Bad</option>
-        <option value = "OK">Ok</option>
-        <option value = "GOOD">Good</option>
-        <option value = "GREAT">Great</option>
-    </select>
+        <label for="behaviorSelect"><b>Behavior: </b></label>
+        <select style="background-color: #4978cf;" class="btn dropdown-toggle"  id="behaviorSelect" [(ngModel)]="behavior">
+            <option value="" selected disabled hidden><b>Select a Behavior</b></option>
+            <option value="TERRIBLE">Terrible</option>
+            <option value="BAD">Bad</option>
+            <option value="OK">Ok</option>
+            <option value="GOOD">Good</option>
+            <option value="GREAT">Great</option>
+        </select>
 
-    <br>
-    <button (click)="addGrade()">Submit</button>
-    <button (click)="toggleForm()">Cancel</button>
+        <br>
+        <button class="btn" (click)="addGrade()"><b>Submit</b></button>
+        <button type="button" class="btn cancel" (click)="toggleForm()"><b>Cancel</b></button>
+    </div>
 </div>
 <p>{{status}}</p>
-

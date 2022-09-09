@@ -1,0 +1,66 @@
+.grades-container{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#grade-list{
+    width: 60%;
+    margin: auto;
+    border: 10px;
+    border-color: black;
+}
+
+
+td{
+    vertical-align: middle;
+}
+
+table{
+   table-layout: fixed;
+}
+
+#actions {
+    text-align: center;
+}
+
+#action-buttons {
+    text-align: center;
+}
+
+#number {
+    text-align: center;
+}
+
+#number-text {
+    text-align: center;
+}
+
+#row {
+    background-color: rgb(185, 149, 100);
+}
+
+button {
+    color: white;
+    font-size: large;
+    
+}
+
+#sid {
+    text-align: center;
+}
+
+#gid {
+    text-align: center;
+}
+
+#sid-header {
+    text-align: center;
+}
+
+#gid-header {
+    text-align: center;
+}

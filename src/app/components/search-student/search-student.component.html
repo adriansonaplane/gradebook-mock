@@ -6,7 +6,7 @@
         class="form-control rounded me-3" placeholder="First Name" aria-label="First Name" aria-describedby="search-addon" required/>
       <input #lastnameInput id="lastname-input" formControlName="last" type="search" 
         class="form-control rounded me-2" placeholder="Last Name" aria-label="Last Name" aria-describedby="search-addon" required/>
-      <button type="submit" class="btn btn-outline-success rounded">search</button>
+      <button type="submit" class="btn btn-success rounded">Search</button>
     </div>
   </form>
 
@@ -17,13 +17,13 @@
         <tr><th colspan="4">Search Results</th></tr>
       </thead>
       <tbody>
-          <tr *ngFor="let student of students; let i = index">
+          <tr class="table-light" *ngFor="let student of students; let i = index">
               <td>{{i+1}}</td>
               <td>{{student.fname + " " + student.lname}}</td>
               <td>{{student.gname}}</td>
               <td>
-                <button type="button" class="btn btn-outline-primary me-2" [routerLink]="['/grades', student.sid]">View Grades</button>
-                <button type="button" class="btn btn-outline-danger" (click)="deletStudent(student.sid)">Delete</button>
+                <button type="button" class="btn bg-primary btn-text- bg-opacity-50 mx-1" [routerLink]="['/grades', student.sid]">View Grades</button>
+                <button type="button" class="btn bg-danger bg-opacity-50" (click)="deletStudent(student.sid)">Delete</button>
               </td>
           </tr>
       </tbody>
