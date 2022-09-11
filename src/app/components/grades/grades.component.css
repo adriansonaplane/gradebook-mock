@@ -14,6 +14,10 @@
     border-color: black;
 }
 
+h3{
+    text-align: center;
+    margin-top: 14%;
+}
 
 td{
     vertical-align: middle;

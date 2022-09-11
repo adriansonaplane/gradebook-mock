@@ -1,18 +1,23 @@
-
-<div id="navBody">
-  <h3>The Daycare</h3>
-  <ng-container *ngIf="curUser.role === 'unknown'">
-    <nav>
-      <button class="btn btn-primary btn-block mx-1" routerLink="/login">Login</button>
-      <button class="btn btn-success btn-block mx-1" routerLink="/signup">Signup</button>
-    </nav>
-  </ng-container>
-
-  <ng-container *ngIf="curUser.role === 'guardian' || curUser.role === 'teacher'">
-    <nav>
-      <button class="btn btn-sm btn-outline-dark btn-block mx-1" routerLink="/studentlist">Student List</button>
-      <button class="btn btn-sm btn-danger btn-block mx-1 " (click)="logout()" routerLink="/login">Logout</button>
-    </nav>
-  </ng-container>
-
-</div>
+<nav class="navbar navbar-expand-lg" style="background-color: #e2e2e2bd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/studentlist">
+      The Daycare
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <div class="d-flex" >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="curUser.role === 'unknown'">
+            <li><button class="btn btn-primary btn-block mx-1" routerLink="/login">Login</button></li>
+          </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="curUser.role === 'guardian' || curUser.role === 'teacher'">
+            <li><button class="btn btn-sm btn-outline-dark btn-block mx-1" routerLink="/studentlist">Student List</button></li>
+            <li> <button class="btn btn-sm btn-danger btn-block mx-1 " (click)="logout()" routerLink="/login">Logout</button></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</nav>

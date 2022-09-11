@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private authUrl = "http://localhost:8080/login";
+  private authUrl = "https://daycare-backend.calmcoast-837dad38.eastus.azurecontainerapps.io/login";
   public curUser: UserInfo = {'role': "unknown", 'username':"unknown"};
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
