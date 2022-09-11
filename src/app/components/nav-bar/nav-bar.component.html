@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #e2e2e2bd;">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/studentlist">
+    <a  *ngIf="curUser.role === 'unknown'"  class="navbar-brand" routerLink="/login">
+      The Daycare
+    </a>
+    <a *ngIf="curUser.role === 'guardian' || curUser.role === 'teacher'" class="navbar-brand" routerLink="/studentlist">
       The Daycare
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

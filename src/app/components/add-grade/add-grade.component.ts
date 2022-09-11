@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Grade } from 'src/app/entities/grade';
 import { GradeService } from 'src/app/services/grade/grade.service';
 import { StudentService } from 'src/app/services/student/student.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-grade',
@@ -14,7 +15,8 @@ export class AddGradeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private studentService: StudentService,
-    private gradeService: GradeService
+    private gradeService: GradeService,
+    private router: Router
   ) { }
 
   sid: number = 0;
@@ -50,11 +52,16 @@ export class AddGradeComponent implements OnInit {
       return;
     }
 
-    this.gradeService.addGrade(grade).subscribe();
-
-    location.reload();
+    this.gradeService.addGrade(grade).subscribe({next: data => this.reloadComponent()});
     this.status = `Grade Created!`;
 
+  }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 
 }
