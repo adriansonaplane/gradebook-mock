@@ -13,7 +13,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class StudentService {
 
-  private studentsUrl = 'http://localhost:8080/students';
+  private studentsUrl = 'https://daycare-backend.calmcoast-837dad38.eastus.azurecontainerapps.io/students';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

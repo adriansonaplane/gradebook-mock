@@ -9,7 +9,7 @@ import { MessageService } from '../message/message.service';
 })
 export class GradeService {
 
-  private gradesUrl = 'http://localhost:8080/grades';
+  private gradesUrl = 'https://daycare-backend.calmcoast-837dad38.eastus.azurecontainerapps.io/grades';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
