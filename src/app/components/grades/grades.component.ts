@@ -29,7 +29,8 @@ export class GradesComponent implements OnInit {
   deleteGrade(id:number){
     this.gradeService.deleteGrade(id).subscribe({
       next: status => {
-          console.log(status);
+          let ind = this.gradeList.findIndex(grade => grade.gid === id);
+          this.gradeList.splice(ind, 1);
           alert("Delete successful")
           location.reload();
       },
