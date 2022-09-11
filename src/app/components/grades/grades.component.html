@@ -9,7 +9,7 @@
             <th style="width: 20%">Time Reported</th>
             <th style="width: 20%">Notes</th>
             <th style="width: 20%">Behavior</th>
-            <th style="width: 20%">Actions</th>
+            <th style="width: 20%" *ngIf="curUser.role === 'teacher'">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -19,7 +19,7 @@
             <td>{{g.treported | date:'medium'}}</td>
             <td>{{g.note}}</td>
             <td>{{g.behavior}}</td>
-            <td><button *ngIf="curUser.role === 'teacher'" type="button" class="btn bg-danger bg-opacity-50" (click)="deleteGrade(g.gid)">Delete</button></td>
+            <td *ngIf="curUser.role === 'teacher'"><button type="button" class="btn bg-danger bg-opacity-50" (click)="deleteGrade(g.gid)">Delete</button></td>
         </tr>
     </tbody>
 </table>
