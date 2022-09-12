@@ -31,8 +31,7 @@ export class GradesComponent implements OnInit {
       next: status => {
           let ind = this.gradeList.findIndex(grade => grade.gid === id);
           this.gradeList.splice(ind, 1);
-          alert("Delete successful")
-          location.reload();
+          alert("Delete successful");
       },
       error: error => {
           console.error('There was an error!', error);
